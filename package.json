@@ -4,7 +4,8 @@
   "description": "HP Mega Rampup Project - Training: NodeJS Latest Features + TDD + DDD + SOLID + Clean Architecture",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:staged": "pnpm test -- --findRelatedTests"
   },
   "repository": {
     "type": "git",
