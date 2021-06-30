@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/hpandelo/NodeJS--MegaRampUp/issues"
   },
-  "homepage": "https://github.com/hpandelo/NodeJS--MegaRampUp#readme"
+  "homepage": "https://github.com/hpandelo/NodeJS--MegaRampUp#readme",
+  "devDependencies": {
+    "git-commit-msg-linter": "^3.2.6"
+  }
 }
