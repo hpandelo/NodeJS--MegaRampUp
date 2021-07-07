@@ -4,11 +4,12 @@
   "description": "HP Mega Rampup Project - Training: NodeJS Latest Features + TDD + DDD + SOLID + Clean Architecture",
   "main": "index.js",
   "scripts": {
-    "test": "jest --passWithNoTests --silent --noStackTrace",
-    "test:verbose": "jest --passWithNoTests",
-    "test:unit": "pnpm test -- --watch",
-    "test:ci": "pnpm test -- --coverage",
-    "test:staged": "pnpm test -- --findRelatedTests"
+    "test":             "jest --passWithNoTests --runInBand --silent --noStackTrace",
+    "test:verbose":     "jest --passWithNoTests --runInBand",
+    "test:unit":        "pnpm test -- --watch -c jest-unit-config.ts",
+    "test:integration": "pnpm test -- --watch -c jest-integration-config.ts",
+    "test:ci":          "pnpm test -- --coverage",
+    "test:staged":      "pnpm test -- --findRelatedTests"
   },
   "repository": {
     "type": "git",
