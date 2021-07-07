@@ -4,7 +4,9 @@
   "description": "HP Mega Rampup Project - Training: NodeJS Latest Features + TDD + DDD + SOLID + Clean Architecture",
   "main": "index.js",
   "scripts": {
-    "test": "jest --passWithNoTests --runInBand --no-cache",
+    "test": "jest --passWithNoTests --silent --noStackTrace",
+    "test:verbose": "jest --passWithNoTests",
+    "test:unit": "pnpm test -- --watch",
     "test:ci": "pnpm test -- --coverage",
     "test:staged": "pnpm test -- --findRelatedTests"
   },
