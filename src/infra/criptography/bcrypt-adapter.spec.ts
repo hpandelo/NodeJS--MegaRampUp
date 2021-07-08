@@ -1,10 +1,8 @@
 import bcrypt from 'bcrypt'
 import { BcryptAdapter } from './bcrypt-adapter'
 
-const makeSut = (): BcryptAdapter => {
-  const salt = 12
-  return new BcryptAdapter(salt)
-}
+const SALT = 12
+const makeSut = (): BcryptAdapter => new BcryptAdapter(SALT)
 
 jest.mock('bcrypt', () => ({
   async hash (): Promise<string> {
@@ -29,7 +27,7 @@ describe('Bcrypt Adapter', () => {
   // ToDo: Check why mockReturnValueOnce isn't accepting parameter
   // test('Should throw if bcrypt throws', async () => {
   //   const sut = makeSut()
-  //   const promiseThrows = new Promise<string>((_resolve, reject) => reject(new Error()))
+  //   const promiseThrows = new Promise<string>((resolve, reject) => reject(new Error()))
   //   jest.spyOn(bcrypt, 'hash').mockReturnValueOnce(promiseThrows)
   //   const promise = await sut.encrypt('any_value')
   //   await expect(promise).rejects.toThrow()

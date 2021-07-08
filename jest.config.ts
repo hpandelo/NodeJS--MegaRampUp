@@ -15,4 +15,6 @@ export default {
     '**/*.spec.ts', 
     '**/*.test.ts'
   ],
+  preset: '@shelf/jest-mongodb',
+  watchPathIgnorePatterns: ['globalConfig'],
 }
