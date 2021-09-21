@@ -3,12 +3,14 @@ import app from '../config/app'
 
 describe('Body Parser Middleware', () => {
   test('Should parse body as JSON', async () => {
-    app.post('/test_body_parser', (req, res) => res.send(req.body))
-    const testPayload = { name: 'test' }
+    const endpoint = '/test_body_parser'
+    const payload = { name: 'test' }
+
+    app.post(endpoint, (req, res) => res.send(req.body))
 
     await request(app)
-      .post('/test_body_parser')
-      .send(testPayload)
-      .expect(testPayload)
+      .post(endpoint)
+      .send(payload)
+      .expect(payload)
   })
 })
