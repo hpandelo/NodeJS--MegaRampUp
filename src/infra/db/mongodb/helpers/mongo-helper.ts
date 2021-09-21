@@ -14,7 +14,17 @@ export const MongoHelper = {
     await this.client.close()
   },
 
+  async cleanupCollection (collectionName: string): Promise<void> {
+    const collection = this.client.db().collection(collectionName)
+    await collection.deleteMany({})
+  },
+
   getCollection (name: string): Collection {
     return this.client.db().collection(name)
+  },
+
+  map (collection: any): any {
+    const { _id, ...collectionWithoutId } = collection
+    return Object.assign({}, collectionWithoutId, { id: _id })
   }
 }

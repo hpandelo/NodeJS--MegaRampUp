@@ -2,6 +2,7 @@ import { MongoHelper } from '../helpers/mongo-helper'
 import { AccountMongoRepository } from './account'
 
 const makeSut = (): AccountMongoRepository => new AccountMongoRepository()
+const collectionName = 'accounts'
 
 describe('Account Mongo Repository', () => {
   beforeAll(async () => {
@@ -13,7 +14,7 @@ describe('Account Mongo Repository', () => {
   })
 
   beforeEach(async () => {
-    await MongoHelper.getCollection('accounts').deleteMany({})
+    await MongoHelper.cleanupCollection(collectionName)
   })
 
   test('Should return an account on success', async () => {
