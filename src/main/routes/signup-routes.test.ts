@@ -1,7 +1,22 @@
 import request from 'supertest'
+import { MongoHelper } from '../../infra/db/mongodb/helpers/mongo-helper'
 import app from '../config/app'
 
 describe('SignUp Routes', () => {
+  const accountsCollection = 'accounts'
+
+  beforeAll(async () => {
+    await MongoHelper.connect(process.env.MONGO_URL as string)
+  })
+
+  afterAll(async () => {
+    await MongoHelper.disconnect()
+  })
+
+  beforeEach(async () => {
+    await MongoHelper.cleanupCollection(accountsCollection)
+  })
+
   test('Should return an account when success', async () => {
     const endpoint = '/api/signup'
     const payload = {
